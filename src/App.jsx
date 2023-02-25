@@ -24,6 +24,7 @@ const [albumList, tempPlaylist] = hash ? (await getListFromHash(node, hash)) : (
 export default function App() {
   const [playlist, setPlaylist] = useState(tempPlaylist);
   const [activeSongIndex, setActiveSongIndex] = useState(-1); // set to -1 for final 
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <div className={ `grid h-screen w-screen place-items-center bg-black text-center px-20 py-5 bg-[url("https://tailwind-ui.hacker5united.repl.co/src/assets/darkBackground.png")]` }>
@@ -39,11 +40,13 @@ export default function App() {
 		 />
          <Search_box />
          <Songs_list 
-			 playlist={ playlist } 
-			 albumList={ albumList }
-			 node={ node }
-			 activeSongIndex={ activeSongIndex }
-			 setActiveSongIndex={ setActiveSongIndex }
+			playlist={ playlist } 
+			albumList={ albumList }
+			node={ node }
+			activeSongIndex={ activeSongIndex }
+			setActiveSongIndex={ setActiveSongIndex }
+			isPlaying={ isPlaying }
+			setIsPlaying={ setIsPlaying }
 		 />
          <Player 
 			playlist={ playlist }
@@ -52,6 +55,8 @@ export default function App() {
 			node={ node }
 			activeSongIndex={ activeSongIndex }
 			setActiveSongIndex={ setActiveSongIndex }
+			isPlaying={ isPlaying }
+			setIsPlaying={ setIsPlaying }
 		 />
        </div>
      </div>

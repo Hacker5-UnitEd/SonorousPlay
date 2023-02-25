@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 import { getUrl } from './../lib/songApi'
 
-export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex }) { 
+export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex, isPlaying, setIsPlaying }) { 
   const [albumArt, setAlbumArt] = useState();
 	
   useEffect(() => {
@@ -24,6 +24,8 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
 				onClick={ () => {
 							console.log("ayyy")
 							setActiveSongIndex(currentSongIndex);
+              setIsPlaying(false);
+              // setIsPlaying(true);
 				} }
 			>
               
