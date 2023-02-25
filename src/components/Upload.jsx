@@ -23,7 +23,7 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 					filePickerRef.current.click();
 				} }
 			>
-				<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024] w-14 h-14 mx-auto grid place-items-center p-3 cursor-pointer'>
+				<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024] w-10 h-10 sm:w-14 sm:h-14 mx-auto grid place-items-center p-3 cursor-pointer'>
                     { !isLoading?
                         <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               			   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path>
@@ -65,7 +65,7 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 					type="button"
 					onClick={ async () =>  navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal()}`) }
 			> 
-				<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024] w-14 h-14 mx-auto grid place-items-center p-3 cursor-pointer'>
+				<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024]  w-10 h-10 sm:w-14 sm:h-14 mx-auto grid place-items-center p-3 cursor-pointer'>
 					<img src={ copyLink } alt='Copy Hash' width="40" height="40"></img>
 				</div>
 			</button>
