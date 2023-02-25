@@ -63,7 +63,7 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 
 			<button 
 					type="button"
-					onClick={ async () =>  navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal()}`) }
+					onClick={ async () =>  navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal(node)}`) }
 			> 
 				<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024]  w-10 h-10 sm:w-14 sm:h-14 mx-auto grid place-items-center p-3 cursor-pointer hover:opacity-80 active:opacity-60 active:scale-95'>
 					<img src={ copyLink } alt='Copy Hash' width="40" height="40"></img>

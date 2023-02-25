@@ -69,13 +69,13 @@ export async function getList(node) {
   let id = 0;
   for await (const artist of node.files.ls("/")) {
     let song = { artist: artist.name };
-    artistList[artist.name] = "No Image";
+    artistList[artist.name] = "";
     for await (const album of node.files.ls("/" + artist.name)) {
       if (album.name == "artistArt") {
         artistList[artist.name] = "/" + artist.name + "/" + "artistArt";
       } else {
         song.album = album.name;
-        albumList[album.name] = "No Image";
+        albumList[album.name] = "/ipfs/bafybeidn3kttyu6ethc7wae3xrvkfoupqsjzqns2q5mwxgsssrfcbcs5gq";
         for await (const aud of node.files.ls(
           "/" + artist.name + "/" + album.name
         )) {

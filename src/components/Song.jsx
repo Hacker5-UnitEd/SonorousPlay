@@ -5,9 +5,10 @@ import playing from '../assets/playing.svg'
 import { useState, useEffect } from 'react'
 
 import { getUrl } from './../lib/songApi'
+import SonorusLogo from '../assets/SonorusLogo.svg'
 
 export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex, isPlaying, setIsPlaying }) { 
-  const [albumArt, setAlbumArt] = useState();
+  const [albumArt, setAlbumArt] = useState(-1);
 	
   useEffect(() => {
   	(async () => {

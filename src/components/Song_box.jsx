@@ -24,7 +24,7 @@ export default function Songs_list({ playlist, albumList, node, activeSongIndex,
 					}
 				}).map((song, songIdx) => 
 					<Song 
-						key={ song.id } 
+						key={ songIdx } 
 						songObj={ song } 
 						albumArtPath={ albumList[song.album] } 
 						node={ node } 
