@@ -5,6 +5,8 @@ import { useState, useRef } from 'react'
 import { addSong, getHashLocal } from '../lib/songApi'
 
 import addFiles from '../assets/addFiles.svg'
+import fileLoader from '../assets/fileLoader.svg'
+
 import copyLink from '../assets/copyLink.svg'
 import logo from '../assets/SonorousFullv2.png'
 
@@ -29,7 +31,7 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
               			   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path>
               		    </svg>
                       :
-                        <img src={ addFiles } alt='Uploading...'></img>
+                        <img src={ fileLoader } alt='Uploading...'></img>
                     }
               		
           		</div>
@@ -63,7 +65,12 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 
 			<button 
 					type="button"
-					onClick={ async () =>  navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal()}`) }
+					onClick={ async () =>  {
+						navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal()}`);
+						setTimeout(() => {
+							setCount();
+						  }, 1000);
+				}}
 			> 
 				<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024]  w-10 h-10 sm:w-14 sm:h-14 mx-auto grid place-items-center p-3 cursor-pointer hover:opacity-80 active:opacity-60 active:scale-95'>
 					<img src={ copyLink } alt='Copy Hash' width="40" height="40"></img>
