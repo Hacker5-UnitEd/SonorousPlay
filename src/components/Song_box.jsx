@@ -24,12 +24,12 @@ export default function Songs_list({ playlist, albumList, node, activeSongIndex,
 					}
 				}).map((song, songIdx) => 
 					<Song 
-						key={ songIdx } 
+						key={ song.id } 
 						songObj={ song } 
 						albumArtPath={ albumList[song.album] } 
 						node={ node } 
-						isActiveSong={ songIdx == activeSongIndex }  
-						currentSongIndex={ songIdx }
+						isActiveSong={ song.id == activeSongIndex }  // the current song's index in the playlist must match the active song index
+						currentSongIndex={ song.id }
 						setActiveSongIndex={ setActiveSongIndex }
 						isPlaying={ isPlaying }
 						setIsPlaying={ setIsPlaying }

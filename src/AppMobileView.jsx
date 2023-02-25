@@ -21,9 +21,11 @@ const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlay
                 activeSongIndex={ activeSongIndex }
                 setActiveSongIndex={ setActiveSongIndex }
              />
+
              <Search_box 
                  setSearchQuery={ setSearchQuery }
              />
+
              <Songs_list 
                 playlist={ playlist } 
                 albumList={ albumList }
@@ -34,16 +36,23 @@ const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlay
                 setIsPlaying={ setIsPlaying }
                 searchQuery={ searchQuery }
              />
-             <Player 
-                playlist={ playlist }
-                setPlaylist={ setPlaylist }
-                albumList={ albumList }
-                node={ node }
-                activeSongIndex={ activeSongIndex }
-                setActiveSongIndex={ setActiveSongIndex }
-                isPlaying={ isPlaying }
-                setIsPlaying={ setIsPlaying }
-             />
+
+             {
+                (activeSongIndex != -1) ? 
+                    <Player 
+                        playlist={ playlist }
+                        setPlaylist={ setPlaylist }
+                        albumList={ albumList }
+                        node={ node }
+                        activeSongIndex={ activeSongIndex }
+                        setActiveSongIndex={ setActiveSongIndex }
+                        isPlaying={ isPlaying }
+                        setIsPlaying={ setIsPlaying }
+                    />
+                :
+                    <></>
+             }
+
            </div>
          </div>
         </div>
