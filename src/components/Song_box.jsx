@@ -13,7 +13,7 @@ import Song from './Song.jsx'
 
 export default function Songs_list({ playlist, albumList, node, activeSongIndex, setActiveSongIndex }) { 
   return(
-      <div className='container h-[calc(47vh)] my-1 backdrop-blur-sm bg-white/30 rounded-md px-10 py-3 overflow-y-scroll no-scrollbar whitespace-nowrap pb-32'>
+      <div className='container h-[calc(47vh)] mt-1 backdrop-blur-sm bg-white/30 rounded-md rounded-b-none px-10 py-3 overflow-y-scroll no-scrollbar whitespace-nowrap'>
         <ul>
 			{
 				playlist.map((song, songIdx) => 
