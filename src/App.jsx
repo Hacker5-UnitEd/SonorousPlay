@@ -2,6 +2,8 @@
 import { useState } from 'react';
 
 import AppDesktopView from './AppDesktopView'
+import AppMobileView from './AppMobileView'
+
 
 
 
@@ -26,7 +28,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
 
 	return (
-		<AppDesktopView 
+		<AppMobileView 
 			node={ node } 
 			hash={ hash } 
 			albumList={ albumList } 
