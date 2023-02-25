@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 // import { BsFillPauseFill, BsFillPlayFill } from 'react-icons/bs';
 // import { IoPlaySkipBackSharp, IoPlaySkipForwardSharp } from 'react-icons/io5';
 
+import leftArrow from '../../assets/leftArrow.svg'
+import rightArrow from '../../assets/rightArrow.svg'
+
 const Controls = ({ audioRef, isPlaying, setIsPlaying, activeSongIndex, setActiveSongIndex, playlist, audioURI, isLoading }) => {
 	const togglePlayPause = () => {
 		setIsPlaying((prev) => !prev);
@@ -57,7 +60,8 @@ const Controls = ({ audioRef, isPlaying, setIsPlaying, activeSongIndex, setActiv
 							{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
   								<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
 							</svg> */}
-							{ "<<" }
+							{/* { "<<" } */}
+							<img src={ leftArrow } width={ 20 } height={ 20 } />
 						</button>
 						<button onClick={ togglePlayPause }>
 							{
@@ -79,7 +83,8 @@ const Controls = ({ audioRef, isPlaying, setIsPlaying, activeSongIndex, setActiv
 							{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
   								<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
 							</svg> */}
-							{ ">>" }
+							{/* ">>" */}
+							<img src={ rightArrow } width={ 20 } height={ 20 } />
 						</button>
 					</>
 			}
