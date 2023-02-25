@@ -73,23 +73,9 @@ const Controls = ({ audioRef, isPlaying, setIsPlaying, activeSongIndex, setActiv
 									// <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
   									// 	<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
 									// </svg>
-									<svg fill="#000000" height="40px" width="40px" version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-									viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" className="hover:fill-black">
-										<g>
-											<g>
-												<path d="M16.5,25.5c-1.1,0-2-0.9-2-2v-7c0-1.1,0.9-2,2-2s2,0.9,2,2v7C18.5,24.6,17.6,25.5,16.5,25.5z M16.5,15.5c-0.6,0-1,0.4-1,1
-													v7c0,0.6,0.4,1,1,1s1-0.4,1-1v-7C17.5,15.9,17.1,15.5,16.5,15.5z"/>
-											</g>
 									<svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="hover:fill-black">
-										<g id="Pause_1" dataname="Pause 1" className="hover:fill-black">
-											<g>
-												<g>
-													<path d="M23.5,25.5c-1.1,0-2-0.9-2-2v-7c0-1.1,0.9-2,2-2s2,0.9,2,2v7C25.5,24.6,24.6,25.5,23.5,25.5z M23.5,15.5
-														c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1s1-0.4,1-1v-7C24.5,15.9,24.1,15.5,23.5,15.5z"/>
-												</g>
-											</g>
-										</g>
-							   		</svg>
+										<path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z" strokeWidth="1"/>
+									</svg>
             				    ) : (
             				        // <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     				// 	<path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
