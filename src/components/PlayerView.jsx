@@ -12,7 +12,7 @@ export default function Player({ playlist, setPlaylist, albumList, node, activeS
   
   return(
 	<div className='mt-0 '>
-      <footer className='container backdrop-blur-2xl h-[calc(22vh)] bg-white/50 rounded-md rounded-t-none flex'>
+      <footer className='container backdrop-blur-2xl h-[calc(22vh)] bg-white/50 rounded-md rounded-t-none flex bottom-0'>
         <MusicPlayer 
 			playlist={ playlist }
 			setPlaylist={ setPlaylist }
