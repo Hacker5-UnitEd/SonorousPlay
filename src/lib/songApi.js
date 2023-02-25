@@ -18,9 +18,14 @@ function getRandomGateway() {
 }
 
 async function gatewayListHash(hash) {
+    console.log(hash)
     const list=[]
-    const doc = (new DOMParser()).parseFromString(await (await fetch(`https://${ getRandomGateway() }/ipfs/${hash}`)).text(), 'text/html')
-    console.log(doc.querySelector('tbody').children[0])
+    const randGateway = getRandomGateway();
+    const resp = await fetch(`https://${ randGateway }/ipfs/${hash}`)
+    const respText = await resp.text()
+    const docParser = new DOMParser();
+    const doc = docParser.parseFromString(respText, 'text/html')
+    console.log(doc.querySelector('tbody').children)
     const tbodyChildren = doc.querySelector('tbody').children
     for (let i = ( hash.includes("/") ? 1 : 0  ); i < tbodyChildren.length; i++) {
       let tr = tbodyChildren[i];
@@ -53,7 +58,7 @@ export async function getUrl(node, path, useGatewayForLocal) {
     const audblob = new Blob(chunks);
     return window.URL.createObjectURL(audblob);
   } else {
-    return `https://${gwArr[Math.floor(Math.random() * gwArr.length)]}/` + path;
+    return `https://${getRandomGateway()}` + path;
   }
 }
 
@@ -135,6 +140,7 @@ export async function getListFromHash(hash) {
   let songList = [];
   let albumList = {};
   let artistList = {};
+  let id = 0;
   console.log(hash)
   const artistLs = await gatewayListHash(hash)
   console.log(artistLs)
@@ -155,6 +161,7 @@ export async function getListFromHash(hash) {
           if (aud != "albumArt") {
             song.name = aud;
             song.path = "/ipfs/" + hash + "/" + artist + "/" + album + "/" + aud;
+            song.id = id++;
             console.log(song);
             songList.push(JSON.parse(JSON.stringify(song)));
             console.log(songList);
