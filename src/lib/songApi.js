@@ -1,3 +1,33 @@
+function getRandomGateway() {
+    const gwArr = [
+        "dweb.link",
+        "cf-ipfs.com",
+        "ipfs.io",
+        "fleek.ipfs.io",
+        "4everland.io",
+        "nftstorage.link",
+        "w3s.link",
+        // "ipfs.joaoleitao.org",
+        "ipfs.eth.aragon.network",
+        "ipfs.best-practice.se",
+        // "cloudflare-ipfs.com",
+        "gateway.ipfs.io",
+      ];
+
+      return gwArr[Math.floor(Math.random() * gwArr.length)]
+}
+
+async function gatewayListHash(hash) {
+    const list=[]
+    const doc = (new DOMParser()).parseFromString(await (await fetch(`https://${ getRandomGateway() }/ipfs/${hash}`)).text(), 'text/html')
+    for (tr of doc.querySelector('tbody').children) {
+        const arr=tr.children[1].children[0].href.split('/')
+        list.push(decodeURI(arr[arr.length-1]))
+    }
+
+    return list
+}
+
 export async function init() {
   const node = await Ipfs.create();
   await node.bootstrap.add(
@@ -10,25 +40,9 @@ export async function init() {
 }
 
 export async function getUrl(node, path, useGatewayForLocal) {
-  const gwArr = [
-    "dweb.link",
-    "cf-ipfs.com",
-    "ipfs.io",
-    "fleek.ipfs.io",
-    "4everland.io",
-    "nftstorage.link",
-    "w3s.link",
-    "ipfs.joaoleitao.org",
-    "ipfs.eth.aragon.network",
-    "ipfs.best-practice.se",
-    "cloudflare-ipfs.com",
-    "gateway.ipfs.io",
-  ];
   if (path.slice(0, 6) != "/ipfs/") {
     if (useGatewayForLocal)
-      return `https://${
-        gwArr[Math.floor(Math.random() * gwArr.length)]
-      }/ipfs/${(await node.files.stat(path)).cid.toString()}`;
+      return `https://${ getRandomGateway() }/ipfs/${(await node.files.stat(path)).cid.toString()}`;
     let chunks = [];
     for await (const chunk of node.files.read(path)) {
       chunks = chunks.concat(chunk);
@@ -114,21 +128,22 @@ export function addSong(node, file, jsmediatags) {
   });
 }
 
-export async function getListFromHash(node, hash) {
+export async function getListFromHash(hash) {
   let songList = [];
   let albumList = {};
   let artistList = {};
-  for await (const artist of node.ls(hash)) {
+  const artistLs = await gatewayListHash(hash)
+  for(const artist of artistLs) {
     let song = { artist: artist.name };
     artistList[artist.name] = "No Image";
-    for await (const album of node.ls(hash + "/" + artist.name)) {
+    for (const album of await gatewayListHash(hash + "/" + artist.name)) {
       if (album.name == "artistArt") {
         artistList[artist.name] =
           "/ipfs/" + hash + "/" + artist.name + "/" + "artistArt";
       } else {
         song.album = album.name;
         albumList[album.name] = "No Image";
-        for await (const aud of node.ls(
+        for (const aud of await gatewayListHash(
           hash + "/" + artist.name + "/" + album.name
         )) {
           if (aud.name != "albumArt") {
