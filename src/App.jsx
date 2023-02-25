@@ -1,10 +1,10 @@
 
 import { useState } from 'react';
 
-import Upload_box from './Components/Upload.jsx';
-import Search_box from './Components/Search.jsx';
-import Songs_list from './Components/Song_box.jsx';
-import Player from './Components/Player.jsx';
+import Upload_box from './components/Upload.jsx';
+import Search_box from './components/Search.jsx';
+import Songs_list from './components/Song_box.jsx';
+import Player from './components/PlayerView.jsx';
 // import song from './Components/Songs.jsx';
 
 import { init, getList } from './lib/songApi'
