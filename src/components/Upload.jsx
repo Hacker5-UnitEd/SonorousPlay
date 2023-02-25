@@ -2,10 +2,12 @@
 
 import { useState, useRef } from 'react'
 
-import { addSong } from '../lib/songApi'
+import { addSong, getHashLocal } from '../lib/songApi'
 
 import addFiles from '../assets/addFiles.svg'
 import copyLink from '../assets/copyLink.svg'
+import logo from '../assets/SonorousFullv2.png'
+
 
 
 export default function Upload_box({ node, albumList, playlist, setPlaylist, setActiveSongIndex }) { 
@@ -13,7 +15,7 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
   const [isLoading, setIsLoading] = useState(false)
 	
   return(
-      <div className='container h-[calc(12vh)] mx-auto backdrop-blur-sm bg-white/30 rounded-md grid grid-cols-5 divide-x-2 px-2 py-3'>	
+      <div className='container h-[calc(12vh)] mx-auto backdrop-blur-sm bg-white/30 rounded-md grid grid-cols-5 divide-x-2 px-2 '>	
         <div className='flex justify-center'>
 			<button 
 				type="button"
@@ -52,18 +54,26 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 				} } 
 			/> 
         </div>
-        
-        <div className='col-span-4 grid place-items-center pl-4 pr-7 '>
 
-		<button 
-				type="button"
-				onClick={ () =>  navigator.clipboard.writeText(`this should copy something`) }
-		>
-			<img src={ copyLink } alt='Copy Hash' width="40" height="40"></img>
-		</button>
+		<div className='col-span-3 grid place-items-center pl-4 pr-7 '>
+			<img src={ logo } alt='Logo' width="350" height="40"></img>
+		</div>
+        
+        <div className='col-span-1 grid place-items-center pl-4 pr-7 '>
+
+			<button 
+					type="button"
+					onClick={ async () =>  navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal()}`) }
+			> 
+				<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024] w-14 h-14 mx-auto grid place-items-center p-3 cursor-pointer'>
+					<img src={ copyLink } alt='Copy Hash' width="40" height="40"></img>
+				</div>
+			</button>
 
         </div>
         
       </div>
     );
 }
+
+// `${window.location.host}/#${await getHashLocal()}`

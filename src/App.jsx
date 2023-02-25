@@ -27,21 +27,8 @@ export default function App() {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [searchQuery, setSearchQuery] = useState("");
 
-	const [isMobile, setIsMobile] = useState(false)
- 
-	const handleResize = () => {
-	  if (window.innerWidth < 720) {
-	      setIsMobile(true)
-	  } else {
-	      setIsMobile(false)
-	  }
-	}
+	const [isMobile, setIsMobile] = useState(window.innerWidth < 720)
 
-	useEffect(() => {
-	  window.addEventListener("resize", handleResize)
-	})
-
-	
 
 		if (isMobile) {
 			return <AppMobileView 
