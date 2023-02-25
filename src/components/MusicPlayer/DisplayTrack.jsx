@@ -1,6 +1,17 @@
+import { useState, useRef, useEffect } from 'react'
+
 const DisplayTrack = ({ activeSong }) => {
+  const containerRef = useRef(null);
+  const [shouldMarquee, setShouldMarquee] = useState(false);  
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setShouldMarquee(containerRef.current.scrollWidth > containerRef.current.clientWidth);
+    }
+  }, [activeSong?.name]);
+
 	return (
-		<div className="my-2 pl-2 w-min truncate text-left">
+		<div className="my-2 pl-2 w-full text-left truncate" ref={ containerRef } >
 			{ 
 				!activeSong ?  
 					<>
@@ -9,9 +20,10 @@ const DisplayTrack = ({ activeSong }) => {
 					</>
 				:
 					<>
-						<p className="text-xl">{ activeSong.name }</p>
-						<p className="text-sm">{ activeSong.artist }</p>
+						<p className="text-xl mx-3">{ activeSong.name }</p>
+						<p className="text-sm mx-3">{ activeSong.artist }</p>
 					</>
+
 			}
 		</div>
 	);

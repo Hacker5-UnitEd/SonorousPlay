@@ -23,17 +23,17 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
 				className={ `w-full h-16 rounded-md ${ isActiveSong ? "bg-gradient-to-r from-cyan-500 to-blue-500" : "bg-white/70"} hover:shadow-[12px_12px_19px_3px_#00000024] p-2 mb-3 duration-200 grid grid-cols-12 place-items-center cursor-pointer` }
 				onClick={ () => {
 							console.log("ayyy")
-							setActiveSongIndex(currentSongIndex);
+							setActiveSongIndex(songObj.id);
               setIsPlaying(false);
               // setIsPlaying(true);
 				} }
 			>
               
-              <div className='col-span-1 h-12 content-start rounded-md overflow-hidden place-self-start'>
+              <div className='col-span-1 h-12 content-start rounded-md overflow-hidden place-self-start w-0 sm:w-auto'>
                   <img src={ albumArt } className="h-full w-full"></img>
               </div>
               
-              <div className='pl-2 col-span-3 place-self-start text-left'>
+              <div className='pl-2 col-span-3 place-self-start text-left truncate'>
                 <h3>{ songObj.name }</h3>
                 <h4 className='text-sm'>{ songObj.artist }</h4>
               </div>
