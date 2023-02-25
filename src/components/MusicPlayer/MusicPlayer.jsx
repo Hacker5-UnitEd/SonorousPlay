@@ -35,7 +35,7 @@ const MusicPlayer = ({ playlist, setPlaylist, node, albumList, activeSongIndex, 
 	
 	return (
 		<div className="flex content-center p-2 w-full ">
-				<div className="rounded-md overflow-hidden content-center">
+				<div className="rounded-md overflow-hidden content-center w-0 sm:w-auto">
 					<img src={ albumArt } className="h-full w-full"/>
 				</div>
 			

@@ -29,11 +29,11 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
 				} }
 			>
               
-              <div className='col-span-1 h-12 content-start rounded-md overflow-hidden place-self-start'>
+              <div className='col-span-1 h-12 content-start rounded-md overflow-hidden place-self-start w-0 sm:w-auto'>
                   <img src={ albumArt } className="h-full w-full"></img>
               </div>
               
-              <div className='pl-2 col-span-3 place-self-start text-left'>
+              <div className='pl-2 col-span-3 place-self-start text-left truncate'>
                 <h3>{ songObj.name }</h3>
                 <h4 className='text-sm'>{ songObj.artist }</h4>
               </div>
