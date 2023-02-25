@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 389.27 45.24">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Borned, Borned;
+        font-size: 40.9px;
+      }
+
+      .cls-2 {
+        letter-spacing: -.2em;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: #37337d;
+      }
+
+      .cls-5 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(0 34.77)"><tspan class="cls-5" x="0" y="0">Son</tspan><tspan class="cls-7" x="103.73" y="0">o</tspan><tspan class="cls-6" x="139.64" y="0">r</tspan><tspan class="cls-5" x="170.6" y="0">ous</tspan><tspan class="cls-3" x="272.62" y="0">Pl</tspan><tspan class="cls-2" x="328.45" y="0">a</tspan><tspan class="cls-4" x="355.36" y="0">y</tspan></text>
+</svg>
