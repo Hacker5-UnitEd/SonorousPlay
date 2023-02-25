@@ -5,7 +5,7 @@ import Player from './Player'
 import Controls from './Controls'
 import DisplayTrack from './DisplayTrack'
 
-import { init, addSong, getUrl } from '../../assets/songApi'
+import { init, addSong, getUrl } from '../../lib/songApi'
 
 
 
