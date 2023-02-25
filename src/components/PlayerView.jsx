@@ -11,7 +11,8 @@ export default function Player({ playlist, setPlaylist, albumList, node, activeS
   	
   
   return(
-      <footer className='container backdrop-blur-md h-[calc(22vh)] bg-white/30 rounded-md absolute bottom-0 left-0 right-0 flex'>
+	<div className='mt-0'>
+      <footer className='container backdrop-blur-md h-[calc(22vh)] bg-white/30 rounded-md rounded-t-none flex'>
         <MusicPlayer 
 			playlist={ playlist }
 			setPlaylist={ setPlaylist }
@@ -21,5 +22,9 @@ export default function Player({ playlist, setPlaylist, albumList, node, activeS
 			setActiveSongIndex={ setActiveSongIndex }
 		/>
       </footer>
+	</div>
     );
 }
+
+
+// absolute bottom-0 left-0 right-0
