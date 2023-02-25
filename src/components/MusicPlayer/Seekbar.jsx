@@ -7,7 +7,7 @@ const Seekbar = ({ seekbarRef,seekTime, duration, audioRef }) => {
 	
 	return (
 		<div className="flex flex-row items-center w-full">
-			<p>{ getTime(seekTime) }</p>
+			<p className="text-sm">{ getTime(seekTime) }</p>
 			<input 
 				type="range"
 				step="any"
@@ -16,7 +16,7 @@ const Seekbar = ({ seekbarRef,seekTime, duration, audioRef }) => {
 				ref={ seekbarRef }
 				onChange={ handleSeekbarChange }
 			/>
-			<p>{ getTime(duration) }</p>
+			<p className="text-sm">{ getTime(duration) }</p>
 		</div>
 	);
 }
