@@ -25,7 +25,7 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
 							console.log("ayyy")
 							setActiveSongIndex(currentSongIndex);
               setIsPlaying(false);
-              setIsPlaying(true);
+              // setIsPlaying(true);
 				} }
 			>
               
