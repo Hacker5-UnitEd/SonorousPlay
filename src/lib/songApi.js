@@ -132,7 +132,9 @@ export async function getListFromHash(hash) {
   let songList = [];
   let albumList = {};
   let artistList = {};
+  console.log(hash)
   const artistLs = await gatewayListHash(hash)
+  console.log(artistLs)
   for(const artist of artistLs) {
     let song = { artist: artist.name };
     artistList[artist.name] = "No Image";
