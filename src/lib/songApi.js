@@ -131,5 +131,7 @@ export async function delSong(node, path) {
 }
 
 export async function addRemoteSong(node, path) {
+    let mpath = path.split('/')
+    mpath.splice(1,2)
     node.files.cp(path, mpath.join('/'))
 }
