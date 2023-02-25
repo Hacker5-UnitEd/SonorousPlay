@@ -4,7 +4,7 @@ import playing from '../assets/playing.svg'
 
 import { useState, useEffect } from 'react'
 
-import { getUrl } from './../assets/songApi'
+import { getUrl } from './../lib/songApi'
 
 export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex }) { 
   const [albumArt, setAlbumArt] = useState();

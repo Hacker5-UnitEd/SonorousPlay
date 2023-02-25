@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import { BsFillPauseFill, BsFillPlayFill } from 'react-icons/bs';
-import { IoPlaySkipBackSharp, IoPlaySkipForwardSharp } from 'react-icons/io5';
+// import { BsFillPauseFill, BsFillPlayFill } from 'react-icons/bs';
+// import { IoPlaySkipBackSharp, IoPlaySkipForwardSharp } from 'react-icons/io5';
 
 const Controls = ({ audioRef, isPlaying, setIsPlaying, activeSongIndex, setActiveSongIndex, playlist, audioURI, isLoading }) => {
 	const togglePlayPause = () => {

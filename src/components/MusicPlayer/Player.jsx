@@ -1,6 +1,6 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 
-import { getUrl } from '../../assets/songApi'
+import { getUrl } from '../../lib/songApi'
 
 const Player = ({ activeSong, audioRef, setDuration, setSeekTime, seekbarRef, isPlaying, node, audioURI, setAudioURI, setIsLoading }) => {
 

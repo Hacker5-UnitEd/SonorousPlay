@@ -2,9 +2,9 @@
 
 import { useState, useRef } from 'react'
 
-// import { addSong } from '../assets/songApi'
+import { addSong } from '../lib/songApi'
 
-// import fileLoad from '../assets/fileLoad.svg'
+import fileLoader from '../assets/fileLoader.svg'
 
 export default function Upload_box({ node, albumList, playlist, setPlaylist, setActiveSongIndex }) { 
   const filePickerRef = useRef(null);
@@ -25,7 +25,7 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
               			   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path>
               		    </svg>
                       :
-                        <img src={ fileLoad } alt='Uploading...'></img>
+                        <img src={ fileLoader } alt='Uploading...'></img>
                     }
               		
           		</div>
