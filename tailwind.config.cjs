@@ -8,17 +8,12 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        marquee: 'marquee 4s linear infinite',
-        marquee2: 'marquee2 4s linear infinite',
+        bgAnime: 'bgAnime 4s linear infinite',
       },
       keyframes: {
-        marquee: {
+        bgAnime: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
-        },
-        marquee2: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0%)' },
         },
       },
     },
