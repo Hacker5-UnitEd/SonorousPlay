@@ -4,7 +4,7 @@ export default function Search_box({ setSearchQuery }) {
   return(
       <div className='container h-full my-1 backdrop-blur-sm bg-white/30 rounded-md px-10 py-3'>
           <input 
-            placeholder='Search the song'
+            placeholder='Search song'
             id='hash_id'
             type={'text'} 
             onChange={ event => setSearchQuery(event.target.value) }
