@@ -106,7 +106,7 @@ export async function getListFromHash(node, hash) {
 }
 
 export async function getHashLocal(node) {
-    return (await node.files.stat('/')).hash
+    return (await node.files.stat('/')).cid.toString()
 }
 
 export async function delSong(node, path) {
