@@ -28,7 +28,7 @@ export default function Songs_list({ playlist, albumList, node, activeSongIndex,
 						songObj={ song } 
 						albumArtPath={ albumList[song.album] } 
 						node={ node } 
-						isActiveSong={ songIdx == activeSongIndex }  
+						isActiveSong={ songIdx == activeSongIndex }  // the current song's index in the playlist must match the active song index
 						currentSongIndex={ songIdx }
 						setActiveSongIndex={ setActiveSongIndex }
 						isPlaying={ isPlaying }
