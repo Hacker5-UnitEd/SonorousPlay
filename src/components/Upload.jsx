@@ -1,17 +1,17 @@
-import '../App.css';
+
 
 import { useState, useRef } from 'react'
 
-import { addSong } from '../assets/songApi'
+// import { addSong } from '../assets/songApi'
 
-import fileLoad from '../assets/fileLoad.svg'
+// import fileLoad from '../assets/fileLoad.svg'
 
 export default function Upload_box({ node, albumList, playlist, setPlaylist, setActiveSongIndex }) { 
   const filePickerRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false)
 	
   return(
-      <div className='container h-full mx-auto backdrop-blur-sm bg-white/30 rounded-md grid grid-cols-5 divide-x-2 px-2 py-3'>	
+      <div className='container h-[calc(12vh)] mx-auto backdrop-blur-sm bg-white/30 rounded-md grid grid-cols-5 divide-x-2 px-2 py-3'>	
         <div className='flex justify-center'>
 			<button 
 				type="button"
