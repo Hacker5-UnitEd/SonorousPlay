@@ -6,7 +6,7 @@ const Seekbar = ({ seekbarRef,seekTime, duration, audioRef }) => {
 	};
 	
 	return (
-		<div className="flex flex-row items-center w-full">
+		<div className="flex flex-row items-center w-full pl-2">
 			<p className="text-sm">{ getTime(seekTime) }</p>
 			<input 
 				type="range"

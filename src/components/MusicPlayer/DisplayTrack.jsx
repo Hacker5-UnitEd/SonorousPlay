@@ -1,6 +1,6 @@
 const DisplayTrack = ({ activeSong }) => {
 	return (
-		<div className="my-2 w-min truncate">
+		<div className="my-2 pl-2 w-min truncate text-left">
 			{ 
 				!activeSong ?  
 					<>

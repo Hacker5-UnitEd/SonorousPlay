@@ -20,7 +20,7 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
   return(
           <li>
             <div 
-				className={ `w-full h-16 rounded-md ${ isActiveSong ? "bg-gradient-to-r from-cyan-500 to-blue-500" : "bg-white/70"} hover:shadow-[12px_12px_19px_3px_#00000024] p-2 my-3 duration-200 grid grid-cols-12 place-items-center cursor-pointer` }
+				className={ `w-full h-16 rounded-md ${ isActiveSong ? "bg-gradient-to-r from-cyan-500 to-blue-500" : "bg-white/70"} hover:shadow-[12px_12px_19px_3px_#00000024] p-2 mb-3 duration-200 grid grid-cols-12 place-items-center cursor-pointer` }
 				onClick={ () => {
 							console.log("ayyy")
 							setActiveSongIndex(currentSongIndex);
@@ -31,7 +31,7 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                   <img src={ albumArt } className="h-full w-full"></img>
               </div>
               
-              <div className='col-span-3 place-self-start'>
+              <div className='pl-2 col-span-3 place-self-start text-left'>
                 <h3>{ songObj.name }</h3>
                 <h4 className='text-sm'>{ songObj.artist }</h4>
               </div>
