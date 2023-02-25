@@ -5,8 +5,8 @@ export async function init() {
     return node
 }
 
-export async function getUrl(node, path, useGatewayForLocal ) {
-    gwArr = [
+export async function getUrl(node, path, useGatewayForLocal) {
+    const gwArr = [
         'dweb.link',
         'cf-ipfs.com',
         'ipfs.io',
