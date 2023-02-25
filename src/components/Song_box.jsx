@@ -13,7 +13,7 @@ import Song from './Song.jsx'
 
 export default function Songs_list({ playlist, albumList, node, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery }) { 
   return(
-      <div className='container h-[calc(49vh)] mt-1 backdrop-blur-sm bg-white/30 rounded-md rounded-b-none px-10 p-3 overflow-y-scroll no-scrollbar whitespace-nowrap'>
+      <div className={ `container h-[calc(${ (activeSongIndex == -1) ? '70' : '49' }vh)] mt-1 backdrop-blur-sm bg-white/30 rounded-md rounded-b-none px-10 p-3 overflow-y-scroll no-scrollbar whitespace-nowrap` }>
         <ul>
 			{
 				playlist.filter(song => {
