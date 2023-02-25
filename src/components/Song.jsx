@@ -56,24 +56,16 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                } 
 
 {/*               Menu Button */}
-              <div className='col-span-1 group/item relative' >
+              <div className='col-span-1 group/item relative align-middle' >
                 <button className="group/edit group-hover/opacity-70">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                  </svg>
-                </button>
-
-{/*                 Menu Dropdown */}
-                <div className='group/edit invisible group-hover/item:visible absolute text-xs bg-white p-1 rounded-md border-solid border-slate-600 border z-10 w-24 cursor-pointer'>
-                  <ul>
-                    <li>Add to playlist</li>
-                    <li>Add to playlist</li>
-                    <li>Add to playlist</li>
-                    <li>Add to playlist</li>
-                  </ul>
-                </div>
-                
+                <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.44 8.8999C20.04 9.2099 21.51 11.0599 21.51 15.1099V15.2399C21.51 19.7099 19.72 21.4999 15.25 21.4999H8.73998C4.26998 21.4999 2.47998 19.7099 2.47998 15.2399V15.1099C2.47998 11.0899 3.92998 9.2399 7.46998 8.9099" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 2V14.88" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M15.35 12.6499L12 15.9999L8.65002 12.6499" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                </button>             
               </div>
+
             </div>
 			    </li>
     );
