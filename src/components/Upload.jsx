@@ -5,6 +5,8 @@ import { useState, useRef } from 'react'
 import { addSong } from '../lib/songApi'
 
 import fileLoader from '../assets/fileLoader.svg'
+import copyLink from '../assets/copyLink.svg'
+
 
 export default function Upload_box({ node, albumList, playlist, setPlaylist, setActiveSongIndex }) { 
   const filePickerRef = useRef(null);
@@ -52,8 +54,14 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
         </div>
         
         <div className='col-span-4 grid place-items-center pl-4 pr-7 '>
-{/*           <lable for="#hash_id">Hash id: </lable> */}
-          <input placeholder='Enter Hash of the File or Folder'id='hash_id'type={'text'} className="w-full col-span-4 h-8 rounded-md bg-white focus:shadow-[12px_12px_19px_3px_#00000024] p-2 focus:outline-0 duration-200"></input>
+
+		<button 
+				type="button"
+				onClick={ () =>  navigator.clipboard.writeText(`this should copy something`) }
+		>
+			<img src={ copyLink } alt='Copy Hash' width="40" height="40"></img>
+		</button>
+
         </div>
         
       </div>
