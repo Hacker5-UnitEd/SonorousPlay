@@ -25,6 +25,7 @@ export default function App() {
   const [playlist, setPlaylist] = useState(tempPlaylist);
   const [activeSongIndex, setActiveSongIndex] = useState(-1); // set to -1 for final 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <div className={ `grid h-screen w-screen place-items-center bg-black text-center px-20 py-5 bg-[url("https://tailwind-ui.hacker5united.repl.co/src/assets/darkBackground.png")]` }>
@@ -38,7 +39,9 @@ export default function App() {
 			activeSongIndex={ activeSongIndex }
 			setActiveSongIndex={ setActiveSongIndex }
 		 />
-         <Search_box />
+         <Search_box 
+		 	setSearchQuery={ setSearchQuery }
+		 />
          <Songs_list 
 			playlist={ playlist } 
 			albumList={ albumList }
@@ -47,6 +50,7 @@ export default function App() {
 			setActiveSongIndex={ setActiveSongIndex }
 			isPlaying={ isPlaying }
 			setIsPlaying={ setIsPlaying }
+			searchQuery={ searchQuery }
 		 />
          <Player 
 			playlist={ playlist }
