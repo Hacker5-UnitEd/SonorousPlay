@@ -17,7 +17,7 @@ console.log(await getHashLocal(node))
 
 const hash = window.location.hash.slice(1, window.location.hash.length);
 
-const [albumList, tempPlaylist] = hash ? (await getListFromHash(node, hash)) : (await getList(node))
+const [albumList, tempPlaylist] = hash ? (await getListFromHash(hash)) : (await getList(node))
 
 
 
