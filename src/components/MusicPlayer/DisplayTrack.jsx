@@ -15,57 +15,14 @@ const DisplayTrack = ({ activeSong }) => {
 			{ 
 				!activeSong ?  
 					<>
-						<div class="relative flex overflow-x-hidden">
-							<div class="animate-marquee whitespace-nowrap">
-								<p className="text-xl">No Song</p>
-							</div>
-
-							<div class="absolute top-0 animate-marquee2 whitespace-nowrap">
-								<p className="text-xl">No Song</p>
-							</div>
-						</div>
-						
-						<div class="relative flex overflow-x-hidden">
-							<div class="animate-marquee whitespace-nowrap">
-								<p className="text-sm left-0">Unkown Artist</p>
-							</div>
-
-							<div class="absolute top-0 animate-marquee2 whitespace-nowrap">
-								<p className="text-sm left-0">Unkown Artist</p>
-							</div>
-						</div>
+						<p className="text-xl">No Song</p>
+						<p className="text-sm left-0">Unkown Artist</p>
 					</>
 				:
-					(
-						shouldMarquee ? 
-							<>
-								<div class="relative flex overflow-x-hidden">
-									<div class=" animate-marquee whitespace-nowrap">
-										<p className="text-xl mx-3">{ activeSong.name }</p>
-									</div>
-
-									<div class="absolute top-0 animate-marquee2 whitespace-nowrap">
-										<p className="text-xl mx-3">{ activeSong.name }</p>
-									</div>
-								</div>
-
-								<div class="relative flex overflow-x-hidden">
-									<div class=" animate-marquee whitespace-nowrap">
-										<p className="text-sm mx-3">{ activeSong.artist }</p>
-									</div>
-
-									<div class="absolute top-0 animate-marquee2 whitespace-nowrap">
-										<p className="text-sm mx-3">{ activeSong.artist }</p>
-									</div>
-								</div>
-							</>
-						:
-							<>
-								<p className="text-xl mx-3">{ activeSong.name }</p>
-								<p className="text-sm mx-3">{ activeSong.artist }</p>
-							</>
-
-					)
+					<>
+						<p className="text-xl mx-3">{ activeSong.name }</p>
+						<p className="text-sm mx-3">{ activeSong.artist }</p>
+					</>
 
 			}
 		</div>
