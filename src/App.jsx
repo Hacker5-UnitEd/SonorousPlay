@@ -7,13 +7,17 @@ import Songs_list from './components/Song_box.jsx';
 import Player from './components/PlayerView.jsx';
 // import song from './Components/Songs.jsx';
 
-import { init, getList } from './lib/songApi'
+import { init, getList, getHashLocal, getListFromHash } from './lib/songApi'
 // import bgImg from './assets/darkBackground.png'
 
 const node = await init();
-console.log(node)
+// console.log(new TextDecoder().decode((await node.files.stat('/')).cid.bytes))
+console.log(await getHashLocal(node))
 
-const [albumList, tempPlaylist] = await getList(node)
+
+const hash = window.location.hash.slice(1, window.location.hash.length);
+
+const [albumList, tempPlaylist] = hash ? (await getListFromHash(node, hash)) : (await getList(node))
 
 
 
