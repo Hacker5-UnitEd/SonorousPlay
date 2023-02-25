@@ -6,16 +6,20 @@ export async function init() {
 }
 
 export async function getUrl(node, path) {
-    let chunks = [];
-    console.log("IPFS download starting");
-    let i=0;
-    for await (const chunk of node.files.read(path)) {
-      chunks = chunks.concat(chunk);
-      console.log(i++);
+    if(path.slice(0, 6) != '/ipfs/') {
+        let chunks = [];
+        // console.log("IPFS download starting");
+        // let i=0;
+        for await (const chunk of node.files.read(path)) {
+          chunks = chunks.concat(chunk);
+        //   console.log(i++);
+        }
+        // console.log('Download complete')
+        const audblob = new Blob(chunks);
+        return window.URL.createObjectURL(audblob);
+    } else {
+        return 'https://dweb.link'+path
     }
-    console.log('Download complete')
-    const audblob = new Blob(chunks);
-    return window.URL.createObjectURL(audblob);
 }
 
 export async function getList(node) {
