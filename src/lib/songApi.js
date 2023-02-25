@@ -5,37 +5,53 @@ export async function init() {
     return node
 }
 
-// export async function getUrl(node, path) {
-//     if(path.slice(0, 6) != '/ipfs/') {
-//         let chunks = [];
-//         // console.log("IPFS download starting");
-//         // let i=0;
-//         for await (const chunk of node.files.read(path)) {
-//           chunks = chunks.concat(chunk);
-//         //   console.log(i++);
-//         }
-//         // console.log('Download complete')
-//         const audblob = new Blob(chunks);
-//         return window.URL.createObjectURL(audblob);
-//     } else {
-//         return 'https://dweb.link'+path
-//     }
-// }
-
-export async function getUrl(node, path) {
-    const hash=(await node.files.stat(path)).cid.toString()
-    let chunks = [];
-    for await (const chunk of node.cat(hash)) {
-      chunks = chunks.concat(chunk);
+export async function getUrl(node, path, useGatewayForLocal ) {
+    gwArr = [
+        'dweb.link',
+        'cf-ipfs.com',
+        'ipfs.io',
+        'fleek.ipfs.io',
+        '4everland.io',
+        'nftstorage.link',
+        'w3s.link',
+        'ipfs.joaoleitao.org',
+        'ipfs.eth.aragon.network',
+        'ipfs.best-practice.se',
+        'cloudflare-ipfs.com',
+        'gateway.ipfs.io'
+    ]
+    if((path.slice(0, 6) != '/ipfs/')) {
+        if(useGatewayForLocal) return `https://${gwArr[Math.floor(Math.random()*gwArr.length)]}/ipfs/${(await node.files.stat(path)).cid.toString()}`
+        let chunks = [];
+        // console.log("IPFS download starting");
+        // let i=0;
+        for await (const chunk of node.files.read(path)) {
+          chunks = chunks.concat(chunk);
+        //   console.log(i++);
+        }
+        // console.log('Download complete')
+        const audblob = new Blob(chunks);
+        return window.URL.createObjectURL(audblob);
+    } else {
+        return `https://${gwArr[Math.floor(Math.random()*gwArr.length)]}/`+path
     }
-    const audblob = new Blob(chunks);
-    return window.URL.createObjectURL(audblob);
-} 
+}
+
+// export async function getUrl(node, path) {
+//     const hash=(await node.files.stat(path)).cid.toString()
+//     let chunks = [];
+//     for await (const chunk of node.cat(hash)) {
+//       chunks = chunks.concat(chunk);
+//     }
+//     const audblob = new Blob(chunks);
+//     return window.URL.createObjectURL(audblob);
+// } 
 
 export async function getList(node) {
     let songList = []
     let albumList = {}
     let artistList = {}
+    let id=0
     for await (const artist of node.files.ls("/")) {
             let song = {artist: artist.name}
             artistList[artist.name] = 'No Image'
@@ -49,6 +65,7 @@ export async function getList(node) {
                         if(aud.name != 'albumArt') {
                             song.name=aud.name
                             song.path="/"+artist.name+"/"+album.name+"/"+aud.name
+                            song.id=id++
 							console.log(song)
                             songList.push(JSON.parse(JSON.stringify(song)))
                             console.log(songList)
