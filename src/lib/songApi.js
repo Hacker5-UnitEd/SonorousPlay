@@ -18,11 +18,19 @@ function getRandomGateway() {
 }
 
 async function gatewayListHash(hash) {
+    console.log(hash)
     const list=[]
-    const doc = (new DOMParser()).parseFromString(await (await fetch(`https://${ getRandomGateway() }/ipfs/${hash}`)).text(), 'text/html')
-    for (tr of doc.querySelector('tbody').children) {
-        const arr=tr.children[1].children[0].href.split('/')
-        list.push(decodeURI(arr[arr.length-1]))
+    const randGateway = getRandomGateway();
+    const resp = await fetch(`https://${ randGateway }/ipfs/${hash}`)
+    const respText = await resp.text()
+    const docParser = new DOMParser();
+    const doc = docParser.parseFromString(respText, 'text/html')
+    console.log(doc.querySelector('tbody').children)
+    const tbodyChildren = doc.querySelector('tbody').children
+    for (let i = ( hash.includes("/") ? 1 : 0  ); i < tbodyChildren.length; i++) {
+      let tr = tbodyChildren[i];
+      const arr=tr.children[1].children[0].href.split('/')
+      list.push(decodeURI(arr[arr.length-1]))
     }
 
     return list
@@ -50,7 +58,7 @@ export async function getUrl(node, path, useGatewayForLocal) {
     const audblob = new Blob(chunks);
     return window.URL.createObjectURL(audblob);
   } else {
-    return `https://${gwArr[Math.floor(Math.random() * gwArr.length)]}/` + path;
+    return `https://${getRandomGateway()}` + path;
   }
 }
 
@@ -132,46 +140,33 @@ export async function getListFromHash(hash) {
   let songList = [];
   let albumList = {};
   let artistList = {};
+  let id = 0;
   console.log(hash)
   const artistLs = await gatewayListHash(hash)
   console.log(artistLs)
   for(const artist of artistLs) {
-    let song = { artist: artist.name };
-    artistList[artist.name] = "No Image";
-    for (const album of await gatewayListHash(hash + "/" + artist.name)) {
-      if (album.name == "artistArt") {
-        artistList[artist.name] =
-          "/ipfs/" + hash + "/" + artist.name + "/" + "artistArt";
+    let song = { artist: artist };
+    artistList[artist] = "No Image";
+    const albumLs = await gatewayListHash(hash + "/" + artist);
+    for (const album of albumLs) {
+      if (album == "artistArt") {
+        artistList[artist] =
+          "/ipfs/" + hash + "/" + artist + "/" + "artistArt";
       } else {
-        song.album = album.name;
-        albumList[album.name] = "No Image";
+        song.album = album;
+        albumList[album] = "No Image";
         for (const aud of await gatewayListHash(
-          hash + "/" + artist.name + "/" + album.name
+          hash + "/" + artist + "/" + album
         )) {
-          if (aud.name != "albumArt") {
-            song.name = aud.name;
-            song.path =
-              "/ipfs/" +
-              hash +
-              "/" +
-              artist.name +
-              "/" +
-              album.name +
-              "/" +
-              aud.name;
+          if (aud != "albumArt") {
+            song.name = aud;
+            song.path = "/ipfs/" + hash + "/" + artist + "/" + album + "/" + aud;
+            song.id = id++;
             console.log(song);
             songList.push(JSON.parse(JSON.stringify(song)));
             console.log(songList);
           } else {
-            albumList[album.name] =
-              "/ipfs/" +
-              hash +
-              "/" +
-              artist.name +
-              "/" +
-              album.name +
-              "/" +
-              aud.name;
+            albumList[album] = "/ipfs/" + hash + "/" + artist + "/" + album + "/" + aud;
           }
         }
       }
