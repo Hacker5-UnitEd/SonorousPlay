@@ -11,14 +11,13 @@ import { init, addSong, getUrl } from '../../lib/songApi'
 
 
 
-const MusicPlayer = ({ playlist, setPlaylist, node, albumList, activeSongIndex, setActiveSongIndex }) => {
+const MusicPlayer = ({ playlist, setPlaylist, node, albumList, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying }) => {
 	// const [activeSong, setActiveSong] = useState(playlist[activeSongIndex]);
 	const [audioURI, setAudioURI] = useState("");
 	const [isLoading, setIsLoading] = useState(true);
 	
 	const [duration, setDuration] = useState(0);
 	const [seekTime, setSeekTime] = useState(0);
-	const [isPlaying, setIsPlaying] = useState(false);
 
 	const [albumArt, setAlbumArt] = useState();
 

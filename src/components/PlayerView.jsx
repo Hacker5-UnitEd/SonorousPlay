@@ -6,7 +6,7 @@ import MusicPlayer from './MusicPlayer/MusicPlayer'
 
 
 
-export default function Player({ playlist, setPlaylist, albumList, node, activeSongIndex, setActiveSongIndex }) { 
+export default function Player({ playlist, setPlaylist, albumList, node, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying }) { 
 
   	
   
@@ -20,6 +20,8 @@ export default function Player({ playlist, setPlaylist, albumList, node, activeS
 			node={ node }
 			activeSongIndex={ activeSongIndex }
 			setActiveSongIndex={ setActiveSongIndex }
+			isPlaying={ isPlaying }
+			setIsPlaying={ setIsPlaying }
 		/>
       </footer>
 	</div>
