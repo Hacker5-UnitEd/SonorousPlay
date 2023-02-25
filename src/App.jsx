@@ -7,11 +7,12 @@ import Songs_list from './components/Song_box.jsx';
 import Player from './components/PlayerView.jsx';
 // import song from './Components/Songs.jsx';
 
-import { init, getList } from './lib/songApi'
+import { init, getList, getHash } from './lib/songApi'
 // import bgImg from './assets/darkBackground.png'
 
 const node = await init();
-console.log(node)
+// console.log(new TextDecoder().decode((await node.files.stat('/')).cid.bytes))
+console.log(  )
 
 const [albumList, tempPlaylist] = await getList(node)
 
