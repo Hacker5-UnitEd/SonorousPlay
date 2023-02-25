@@ -28,7 +28,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
 
 	return (
-		<AppMobileView 
+		<AppDesktopView 
 			node={ node } 
 			hash={ hash } 
 			albumList={ albumList } 
