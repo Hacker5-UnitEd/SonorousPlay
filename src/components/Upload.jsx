@@ -61,9 +61,12 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 			/> 
 			</>
 			:	
-				<button>
+				<button>			
+					<div className='rounded-full bg-white/90 hover:shadow-[4px_3px_18px_0px_#00000024] w-10 h-10 sm:w-14 sm:h-14 mx-auto grid place-items-center p-3 cursor-pointer hover:opacity-80 active:opacity-60 active:scale-95'>
 					<img src={ homeButton } alt='Home' width="45" height="45" ></img>
+					</div>
 				</button>
+			
 			}
 			
         </div>
