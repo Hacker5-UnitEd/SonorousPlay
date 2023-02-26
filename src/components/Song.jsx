@@ -78,18 +78,19 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                 </svg>
                 </button> 
                 :
-                  <button
-                    type="button"
-                    onClick={ async (e) => {
-                        e.stopPropagation();
-                        console.log(`Delete ${songObj.name}`)
-                        delSong(node, songObj.path)
-                        // setPlaylist((await getList(node))[1])
-                        window.location.reload();
-                    } }
-                  >
-                    <img src={ deleteButton } width="25" height="25" ></img>
-                  </button> 
+                  // <button
+                  //   type="button"
+                  //   onClick={ async (e) => {
+                  //       e.stopPropagation();
+                  //       console.log(`Delete ${songObj.name}`)
+                  //       delSong(node, songObj.path)
+                  //       // setPlaylist((await getList(node))[1])
+                  //       window.location.reload();
+                  //   } }
+                  // >
+                  //   <img src={ deleteButton } width="25" height="25" ></img>
+                  // </button> 
+                  <></>
                 }
                             
               </div>
