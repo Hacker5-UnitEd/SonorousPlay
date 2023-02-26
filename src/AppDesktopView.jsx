@@ -6,7 +6,7 @@ import Player from './components/PlayerView.jsx';
 
 const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlaylist, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery, setSearchQuery, isLoading, setIsLoading, ownFeed }) => {
     return (
-        <div className={ `grid h-screen w-screen place-items-center bg-black text-center px-20 py-5 bg-[url("https://tailwind-ui.hacker5united.repl.co/src/assets/darkBackground.png")]` }>
+        <div className={ `grid h-screen w-screen place-items-center bg-black text-center px-20 py-5 bg-[url("./../src/assets/darkBackground.png")]` }>
          <div className='w-[calc(70vw)] h-full mx-auto my-1 backdrop-blur-sm bg-white/30 rounded-md p-2'>
            <div>
              <Upload_box 
