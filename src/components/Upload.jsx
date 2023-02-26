@@ -44,6 +44,7 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 			<input 
 				type="file" 
 				id="music-pick" 
+				accept="audio/*"
 				className="hidden" 
 				ref={ filePickerRef }
 				onChange={ async (e) => {
