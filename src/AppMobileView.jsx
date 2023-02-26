@@ -6,7 +6,7 @@ import Player from './components/PlayerView.jsx';
 
 
 
-const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlaylist, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery, setSearchQuery, isLoading, setIsLoading }) => {
+const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlaylist, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery, setSearchQuery, isLoading, setIsLoading, ownFeed }) => {
 
   
   return (
@@ -37,6 +37,7 @@ const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlay
                 searchQuery={ searchQuery }
                 isLoading={ isLoading }
 					    setIsLoading={ setIsLoading }
+              ownFeed={ ownFeed }
              />
 
              {

@@ -6,8 +6,9 @@ import { useState, useEffect } from 'react'
 
 import { addRemoteSong, getUrl } from './../lib/songApi'
 import SonorusLogo from '../assets/SonorusLogo.svg'
+import deleteButton from '../assets/delete.svg'
 
-export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, isLoading }) { 
+export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, isLoading, ownFeed }) { 
   const [albumArt, setAlbumArt] = useState(-1);
 	
   useEffect(() => {
@@ -60,7 +61,9 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                } 
 
               <div className='col-span-1 group/item relative align-middle' >
-                <button 
+                {
+                  !ownFeed ?
+                  <button 
                   className="group/edit group-hover/opacity-70"
                   onClick={ async () => (await addRemoteSong(node, songObj.path)) }
                 >
@@ -69,7 +72,18 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                   <path d="M12 2V14.88" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M15.35 12.6499L12 15.9999L8.65002 12.6499" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                </button>             
+                </button> 
+                :
+                  <button
+                    type="button"
+                    onClick={() => {
+                      console.log(`Delete ${songObj.name}`)
+                    }}
+                  >
+                    <img src={ deleteButton } width="25" height="25" ></img>
+                  </button> 
+                }
+                            
               </div>
 
             </div>

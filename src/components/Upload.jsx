@@ -9,17 +9,21 @@ import fileLoader from '../assets/fileLoader.svg'
 
 import copyLink from '../assets/copyLink.svg'
 import logo from '../assets/SonorousFullv2.png'
+import homeButton from '../assets/homeButton.svg'
 
 
 
-export default function Upload_box({ node, albumList, playlist, setPlaylist, setActiveSongIndex }) { 
+export default function Upload_box({ node, albumList, playlist, setPlaylist, setActiveSongIndex, ownFeed }) { 
   const filePickerRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false)
 	
   return(
       <div className='container h-[calc(12vh)] mx-auto backdrop-blur-sm bg-white/30 rounded-md grid grid-cols-5 divide-x-2 px-2 '>	
         <div className='flex justify-center'>
-			<button 
+			{
+				ownFeed ?
+				<>
+				<button 
 				type="button"
 				onClick={ () => {
 					filePickerRef.current.click();
@@ -55,6 +59,13 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 					// setAlbumArt(await getUrl(node, albumPath));
 				} } 
 			/> 
+			</>
+			:	
+				<button>
+					<img src={ homeButton } alt='Home' width="45" height="45" ></img>
+				</button>
+			}
+			
         </div>
 
 		<div className='col-span-3 grid place-items-center pl-4 pr-7 '>
