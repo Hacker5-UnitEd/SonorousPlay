@@ -26,6 +26,7 @@ export default function App() {
 	const [activeSongIndex, setActiveSongIndex] = useState(-1); // set to -1 for final 
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [searchQuery, setSearchQuery] = useState("");
+	const [isLoading, setIsLoading] = useState(true);
 
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 720)
 
@@ -44,6 +45,8 @@ export default function App() {
 					setIsPlaying={ setIsPlaying } 
 					searchQuery={ searchQuery } 
 					setSearchQuery={ setSearchQuery }
+					isLoading={ isLoading }
+					setIsLoading={ setIsLoading }
 				/>	
 		} else {
 			return <AppDesktopView 
@@ -59,6 +62,8 @@ export default function App() {
 					setIsPlaying={ setIsPlaying } 
 					searchQuery={ searchQuery } 
 					setSearchQuery={ setSearchQuery }
+					isLoading={ isLoading }
+					setIsLoading={ setIsLoading }
 			/>
 		}
 

@@ -4,7 +4,7 @@ import Songs_list from './components/Song_box.jsx';
 import Player from './components/PlayerView.jsx';
 // import song from './Components/Songs.jsx';
 
-const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlaylist, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery, setSearchQuery }) => {
+const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlaylist, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery, setSearchQuery, isLoading, setIsLoading }) => {
     return (
         <div className={ `grid h-screen w-screen place-items-center bg-black text-center px-20 py-5 bg-[url("https://tailwind-ui.hacker5united.repl.co/src/assets/darkBackground.png")]` }>
          <div className='w-[calc(70vw)] h-full mx-auto my-1 backdrop-blur-sm bg-white/30 rounded-md p-2'>
@@ -29,6 +29,8 @@ const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlay
                 isPlaying={ isPlaying }
                 setIsPlaying={ setIsPlaying }
                 searchQuery={ searchQuery }
+                isLoading={ isLoading }
+					      setIsLoading={ setIsLoading }
              />
              <Player 
                 playlist={ playlist }
@@ -39,6 +41,8 @@ const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlay
                 setActiveSongIndex={ setActiveSongIndex }
                 isPlaying={ isPlaying }
                 setIsPlaying={ setIsPlaying }
+                isLoading={ isLoading }
+                setIsLoading={ setIsLoading }
              />
            </div>
          </div>

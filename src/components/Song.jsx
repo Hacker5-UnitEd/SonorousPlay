@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import { addRemoteSong, getUrl } from './../lib/songApi'
 import SonorusLogo from '../assets/SonorusLogo.svg'
 
-export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex, isPlaying, setIsPlaying }) { 
+export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, isLoading }) { 
   const [albumArt, setAlbumArt] = useState(-1);
 	
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
 							// console.log("ayyy")
 							setActiveSongIndex(songObj.id);
               setIsPlaying(false);
-              if (isActiveSong) {
+              if (isActiveSong && !isLoading) {
                 setIsPlaying(true);
               }
               // setIsPlaying(true);
