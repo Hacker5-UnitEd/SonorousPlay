@@ -78,6 +78,7 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                     type="button"
                     onClick={() => {
                       console.log(`Delete ${songObj.name}`)
+                      
                     }}
                   >
                     <img src={ deleteButton } width="25" height="25" ></img>
