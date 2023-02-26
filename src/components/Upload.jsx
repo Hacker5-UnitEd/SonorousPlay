@@ -66,9 +66,9 @@ export default function Upload_box({ node, albumList, playlist, setPlaylist, set
 			<button 
 					type="button"
 					onClick={ async () =>  {
-						navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal()}`);
+						navigator.clipboard.writeText(`${window.location.host}/#${await getHashLocal(node)}`);
 						setTimeout(() => {
-							setCount();
+							// setCount();
 						  }, 1000);
 				}}
 			> 
