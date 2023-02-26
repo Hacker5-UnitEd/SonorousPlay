@@ -73,7 +73,12 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                 </svg>
                 </button> 
                 :
-                  <button>DEL</button> 
+                  <button
+                    type="button"
+                    onClick={() => {
+                      console.log(`Delete ${songObj.name}`)
+                    }}
+                  >DEL</button> 
                 }
                             
               </div>

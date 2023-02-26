@@ -16,6 +16,7 @@ const AppDesktopView = ({ node, hash, albumList, tempPlaylist, playlist, setPlay
                 albumList={ albumList }
                 activeSongIndex={ activeSongIndex }
                 setActiveSongIndex={ setActiveSongIndex }
+                ownFeed={ ownFeed }
              />
              <Search_box 
                  setSearchQuery={ setSearchQuery }
