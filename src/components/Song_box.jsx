@@ -11,7 +11,7 @@ import Song from './Song.jsx'
 //   );
 // }
 
-export default function Songs_list({ playlist, albumList, node, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery, isLoading, setIsLoading }) { 
+export default function Songs_list({ playlist, albumList, node, activeSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, searchQuery, isLoading, setIsLoading, ownFeed }) { 
   return(
       <div className='container h-[calc(49vh)] mt-1 backdrop-blur-sm bg-white/30 rounded-md rounded-b-none sm:px-10 p-1 p-3 overflow-y-scroll no-scrollbar whitespace-nowrap'>
         <ul>
@@ -24,7 +24,7 @@ export default function Songs_list({ playlist, albumList, node, activeSongIndex,
 					}
 				}).map((song, songIdx) => 
 					<Song 
-						key={ songIdx } 
+						key={ song.id } 
 						songObj={ song } 
 						albumArtPath={ albumList[song.album] } 
 						node={ node } 
@@ -34,6 +34,7 @@ export default function Songs_list({ playlist, albumList, node, activeSongIndex,
 						isPlaying={ isPlaying }
 						setIsPlaying={ setIsPlaying }
 						isLoading={ isLoading }
+						ownFeed={ ownFeed }
 					/>)
 			}
         </ul>

@@ -8,6 +8,7 @@ import rightArrow from '../../assets/rightArrow.svg'
 import pause from '../../assets/pause.svg'
 import play from '../../assets/play.svg'
 
+
 const Controls = ({ audioRef, isPlaying, setIsPlaying, activeSongIndex, setActiveSongIndex, playlist, audioURI, isLoading }) => {
 	const togglePlayPause = () => {
 		setIsPlaying((prev) => !prev);

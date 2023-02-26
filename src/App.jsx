@@ -16,6 +16,7 @@ console.log(await getHashLocal(node))
 
 
 const hash = window.location.hash.slice(1, window.location.hash.length);
+let ownFeed = !Boolean(hash)
 
 const [albumList, tempPlaylist] = hash ? (await getListFromHash(hash)) : (await getList(node))
 
@@ -47,6 +48,7 @@ export default function App() {
 					setSearchQuery={ setSearchQuery }
 					isLoading={ isLoading }
 					setIsLoading={ setIsLoading }
+					ownFeed={ ownFeed }
 				/>	
 		} else {
 			return <AppDesktopView 
@@ -64,6 +66,7 @@ export default function App() {
 					setSearchQuery={ setSearchQuery }
 					isLoading={ isLoading }
 					setIsLoading={ setIsLoading }
+					ownFeed={ ownFeed }
 			/>
 		}
 
