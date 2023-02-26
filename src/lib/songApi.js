@@ -188,7 +188,9 @@ export async function delSong(node, path) {
 }
 
 export async function addRemoteSong(node, path, jsmediatags) {
+  console.log('start')
   const blob =await (await fetch(`https://${getRandomGateway()}` + path)).blob();
-  addSong(node, blob, jsmediatags);
+  await addSong(node, blob, jsmediatags);
+  console.log('stop')
   return true;
 }
