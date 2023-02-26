@@ -53,6 +53,7 @@ export async function getUrl(node, path, useGatewayForLocal) {
     if (useGatewayForLocal)
       return `https://${ getRandomGateway() }/ipfs/${(await node.files.stat(path)).cid.toString()}`;
     let chunks = [];
+    console.log(path)
     for await (const chunk of node.files.read(path)) {
       chunks = chunks.concat(chunk);
     }
@@ -155,7 +156,7 @@ export async function getListFromHash(hash) {
           "/ipfs/" + hash + "/" + artist + "/" + "artistArt";
       } else {
         song.album = album;
-        albumList[album] = "No Image";
+        albumList[album] = "/ipfs/bafybeidn3kttyu6ethc7wae3xrvkfoupqsjzqns2q5mwxgsssrfcbcs5gq";
         for (const aud of await gatewayListHash(
           hash + "/" + artist + "/" + album
         )) {
@@ -186,8 +187,8 @@ export async function delSong(node, path) {
   node.files.rm(path, { flush: true });
 }
 
-export async function addRemoteSong(node, path) {
-  let mpath = path.split("/");
-  mpath.splice(1, 2);
-  node.files.cp(path, mpath.join("/"));
+export async function addRemoteSong(node, path, jsmediatags) {
+  const blob =await (await fetch(`https://${getRandomGateway()}` + path)).blob();
+  addSong(node, blob, jsmediatags);
+  return true;
 }

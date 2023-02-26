@@ -4,7 +4,7 @@ import playing from '../assets/playing.svg'
 
 import { useState, useEffect } from 'react'
 
-import { addRemoteSong, getUrl, delSong, getList } from './../lib/songApi'
+import { addRemoteSong, getUrl, delSong } from './../lib/songApi'
 import SonorusLogo from '../assets/SonorusLogo.svg'
 import deleteButton from '../assets/delete.svg'
 
@@ -66,7 +66,10 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                   !ownFeed ?
                   <button 
                   className="group/edit group-hover/opacity-70"
-                  onClick={ async () => (await addRemoteSong(node, songObj.path)) }
+                  onClick={ async (e) => {
+                    e.stopPropagation();
+                    await addRemoteSong(node, songObj.path, window.jsmediatags);
+                  } }
                 >
                 <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16.44 8.8999C20.04 9.2099 21.51 11.0599 21.51 15.1099V15.2399C21.51 19.7099 19.72 21.4999 15.25 21.4999H8.73998C4.26998 21.4999 2.47998 19.7099 2.47998 15.2399V15.1099C2.47998 11.0899 3.92998 9.2399 7.46998 8.9099" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
