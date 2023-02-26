@@ -39,10 +39,10 @@ async function gatewayListHash(hash) {
 export async function init() {
   const node = await Ipfs.create();
   await node.bootstrap.add(
-    "/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star"
+    "/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star/p2p/QmfU4GLK2mcv53ebXuazeMKAJ55dfJ5g1ufm47NwDRR2vb"
   );
   await node.bootstrap.add(
-    "/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star"
+    "/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star/p2p/QmfU4GLK2mcv53ebXuazeMKAJ55dfJ5g1ufm47NwDRR2vb"
   );
   return node;
 }
