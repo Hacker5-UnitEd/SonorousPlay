@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 
 import { addRemoteSong, getUrl } from './../lib/songApi'
 import SonorusLogo from '../assets/SonorusLogo.svg'
+import deleteButton from '../assets/delete.svg'
 
 export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, currentSongIndex, setActiveSongIndex, isPlaying, setIsPlaying, isLoading, ownFeed }) { 
   const [albumArt, setAlbumArt] = useState(-1);
@@ -78,7 +79,9 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                     onClick={() => {
                       console.log(`Delete ${songObj.name}`)
                     }}
-                  >DEL</button> 
+                  >
+                    <img src={ deleteButton } width="25" height="25" ></img>
+                  </button> 
                 }
                             
               </div>
