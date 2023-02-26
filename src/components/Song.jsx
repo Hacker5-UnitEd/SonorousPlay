@@ -93,7 +93,6 @@ export default function Songs_list({ node, songObj, albumArtPath, isActiveSong, 
                 }
                             
               </div>
-              <div className='dot-falling'></div>
 
             </div>
 			    </li>
