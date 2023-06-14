@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 792">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Borned, Borned;
+        font-size: 40.9px;
+      }
+
+      .cls-2 {
+        letter-spacing: -.2em;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: #37337d;
+      }
+
+      .cls-6 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-7 {
+        fill: #ef5080;
+        opacity: .75;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-5 {
+        opacity: .9;
+      }
+
+      .cls-8 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <path class="cls-5" d="M181.86,348.79c0,20.92-15.59,37.87-34.81,37.87-.77,0-1.54-.03-2.3-.09v.09H45.66l61.59-75.75h37.49v.09c.76-.06,1.53-.09,2.3-.09,19.22,0,34.81,16.96,34.81,37.87Z"/>
+  <path class="cls-7" d="M55.41,305.53c.45-20.91,16.41-37.53,35.63-37.11,.77,.02,1.54,.06,2.29,.14v-.09s69.99,1.52,69.99,1.52l29.07,.63-63.22,74.39-37.48-.81v-.09c-.76,.04-1.53,.05-2.29,.04-19.22-.42-34.44-17.71-33.99-38.62Z"/>
+  <text class="cls-1" transform="translate(192.4 349.18)"><tspan class="cls-6" x="0" y="0">Son</tspan><tspan class="cls-9" x="103.73" y="0">o</tspan><tspan class="cls-8" x="139.64" y="0">r</tspan><tspan class="cls-6" x="170.6" y="0">ous</tspan><tspan class="cls-3" x="272.62" y="0">Pl</tspan><tspan class="cls-2" x="328.45" y="0">a</tspan><tspan class="cls-4" x="355.36" y="0">y</tspan></text>
+</svg>
